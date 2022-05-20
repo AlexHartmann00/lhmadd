@@ -18,8 +18,17 @@ johnson_neyman(object, X, M, modrange = NULL, resolution = 10000)
 \item{resolution}{plotting resolution, i.e. count of moderator values to consider}
 }
 \value{
-Johnson-neyman plot
+Johnson-neyman plot as gpplot2 object.
 }
 \description{
 Generates a Johnson-Neyman plot for the effect of X on the dependent variable, moderated by M.
+}
+\examples{
+x <- rnorm(50)
+m <- rnorm(50)
+y <- rnorm(50,x+m,2)
+model <- lm(y~x*m)
+plot <- johnson_neyman(model,"x","m")
+plot + labs(x="Changed x label",y="Changed y label")
+
 }

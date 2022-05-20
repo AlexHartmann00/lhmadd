@@ -8,7 +8,15 @@
 #'@param modrange moderator range to consider. Defaults to observed range.
 #'@param resolution plotting resolution, i.e. count of moderator values to consider
 #'
-#'@return Johnson-neyman plot
+#'@return Johnson-neyman plot as gpplot2 object.
+#'
+#'@examples
+#'x <- rnorm(50)
+#'m <- rnorm(50)
+#'y <- rnorm(50,x+m,2)
+#'model <- lm(y~x*m)
+#'plot <- johnson_neyman(model,"x","m")
+#'plot + labs(x="Changed x label",y="Changed y label")
 #'
 #'@export
 #'
