@@ -42,6 +42,8 @@ $$t = \frac{w_1(M)}{se(w_1(M))}$$
 
 and tested for significance with $\alpha = .05$.
 
+The plot below shows significant regions in blue and non-significant ones in red.
+
 ![jnplt](https://user-images.githubusercontent.com/87905364/169590263-e1038194-d14a-4ea5-a83b-6f8bdd0e5c79.png)
 
 ## HC standard errors
