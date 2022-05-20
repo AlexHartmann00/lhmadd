@@ -8,15 +8,15 @@ Simple regression equation with interaction term
 
 $$y = b_0 + b_1X + b_2M + b_3XM$$
 
-Factorize x:
+Factorize X-terms:
 
 $$b_1X + b_3XM = X\cdot(b_1+b_3M)$$
 
-x's combined coefficient
+X's combined coefficient
 
 $$w_1(M) = b_1 + b_3M$$
 
-From elementary variance calculations
+From elementary variance calculations,
 
 $$Var(w_1(M)) = Var(b_1) + Var(b_3M) + Cov(B_1,B_3M)$$
 
