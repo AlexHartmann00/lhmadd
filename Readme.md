@@ -2,20 +2,25 @@
 
 ## Johnson-Neyman plots
 
+### Mathematical derivation of significance test
+
+Simple regression equation with interaction term
+
 $$y = b_0 + b_1X + b_2M + b_3XM$$
-x-Terme rausziehen:
+
+Factorize x:
+
 $$b_1X + b_3XM = X\cdot(b_1+b_3M)$$
 
-Das heißt, der Effekt/ "gesamtkoeffizient" der UV ist
+x's combined coefficient
 
 $$w_1(M) = b_1 + b_3M$$
 
-Das wollen wir auf signifikanz Testen. Geht nur mit Standardfehler (se).
-
-$$Var(X+Y) = Var(X) + Var(Y) + 2Cov(X,Y)$$
+From elementary variance calculations
 
 $$Var(w_1(M)) = Var(b_1) + Var(b_3M) + Cov(B_1,B_3M)$$
-Da die Varianz ein quadratischer Term ist,
+
+$$\leftrightarrow$$
 
 $$Var(b_3M) = M^2 Var(b_3)$$
 Für die Kovarianz gilt
