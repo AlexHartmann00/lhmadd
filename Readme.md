@@ -20,19 +20,27 @@ From elementary variance calculations
 
 $$Var(w_1(M)) = Var(b_1) + Var(b_3M) + Cov(B_1,B_3M)$$
 
-$$\leftrightarrow$$
+Note that
 
 $$Var(b_3M) = M^2 Var(b_3)$$
-Für die Kovarianz gilt
+
+and
 
 $$Cov(b_1,b_3M) = MCov(b_1,b_3)$$
-also, wird die Gleichung zu:
+
+So, we get
 
 $$Var(w_1(M)) = Var(b_1) + M^2Var(b_3) + MCov(b_1,b_3)$$
-Für den Standardfehler:
+
+and
+
 $$se(w_1(M)) = \sqrt{(Var(b_1) + M^2Var(b_3) + MCov(b_1,b_3))}$$
-Für unseren Signifikanztest:
+
+The t-statistic is then calculated as
+
 $$t = \frac{w_1(M)}{se(w_1(M))}$$
+
+and tested for significance with $\alpha = .05$.
 
 ![jnplt](https://user-images.githubusercontent.com/87905364/169590263-e1038194-d14a-4ea5-a83b-6f8bdd0e5c79.png)
 
