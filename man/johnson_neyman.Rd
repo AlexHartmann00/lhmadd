@@ -24,11 +24,22 @@ Johnson-neyman plot as gpplot2 object.
 Generates a Johnson-Neyman plot for the effect of X on the dependent variable, moderated by M.
 }
 \examples{
+#Generate base plot for linear model
 x <- rnorm(50)
 m <- rnorm(50)
-y <- rnorm(50,x+m,2)
+y <- rnorm(50,x*m,2)
 model <- lm(y~x*m)
 plot <- johnson_neyman(model,"x","m")
+
+# Add custom ggplot2 elements
 plot + labs(x="Changed x label",y="Changed y label")
+
+#mixed models
+x <- rnorm(50)
+m <- rnorm(50)
+y <- rnorm(50,x*m,2)
+g <- sample(1:10,50,TRUE)
+model <- lme4::lmer(y~m*x + (1|g))
+johnson_neyman(model,"x","m")
 
 }
