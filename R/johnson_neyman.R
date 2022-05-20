@@ -11,10 +11,9 @@
 #'
 #'@return Johnson-neyman plot
 #'
-#'@export
+#'@noRd
+#'
 .johnson_neyman <- function(B,sigma,x,m,modrange,df,resolution=10000){
-  print(B)
-  print(sigma)
   xname <- x
   intname <- paste(x,m,sep=":")
   modname <- m
