@@ -9,7 +9,7 @@
 #'@param resolution plotting resolution, i.e. count of moderator values to consider
 #'@param sig.thresh significance threshold alpha. Defaults to 0.05.
 #'
-#'@return Johnson-neyman plot as gpplot2 object.
+#'@return Johnson-neyman plot as gpplot2 object. Also prints the exact significance regions within the supplied moderator range.
 #'
 #'@examples
 #'#Generate base plot for linear model
