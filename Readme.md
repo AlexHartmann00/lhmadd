@@ -8,7 +8,7 @@ devtools::install_github("AlexHartmann00/lhmadd")
 
 ## Johnson-Neyman plots
 
-[jnplt](https://user-images.githubusercontent.com/87905364/169644339-c4113ac3-98b6-4c75-9106-1192b0862a12.png)
+![jnplt](https://user-images.githubusercontent.com/87905364/169644339-c4113ac3-98b6-4c75-9106-1192b0862a12.png)
 
 ### Mathematical derivation of significance test
 
