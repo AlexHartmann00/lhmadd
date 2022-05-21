@@ -1,4 +1,4 @@
-# lhmadd - R package to add model-agnostic additional linear modeling functions
+# lhmadd - R package to add functions for linear (mixed) models
 
 ## Install from GitHub
 ```rb
