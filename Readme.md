@@ -8,6 +8,19 @@ devtools::install_github("AlexHartmann00/lhmadd")
 
 ## Johnson-Neyman plots
 
+Works for all of the following: "lm","glm","lme4","nlme", might work for more.
+
+Usage:
+
+```rb
+library(lhmadd)
+x <- rnorm(50)
+m <- rnorm(50)
+y <- rnorm(50,x*m,2)
+model <- lm(y~x*m)
+johnson_neyman(model,"x","m")
+```
+
 ![jnplt](https://user-images.githubusercontent.com/87905364/169644339-c4113ac3-98b6-4c75-9106-1192b0862a12.png)
 
 ### Mathematical derivation of significance test
