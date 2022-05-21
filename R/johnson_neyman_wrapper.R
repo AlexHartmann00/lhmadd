@@ -1,12 +1,13 @@
 #'Generate Johnson-Neyman plot
 #'
-#'Generates a Johnson-Neyman plot for the effect of X on the dependent variable, moderated by M.
+#'Generates a Johnson-Neyman plot for the effect of X on the dependent variable, moderated by M. Performs two-sided t-Test on coefficient.
 #'
 #'@param object model object, either "lm","lmer","nlme"
 #'@param X name of independent variable
 #'@param M name of moderator variable
 #'@param modrange moderator range to consider. Defaults to observed range.
 #'@param resolution plotting resolution, i.e. count of moderator values to consider
+#'@param sig.thresh significance threshold alpha. Defaults to 0.05.
 #'
 #'@return Johnson-neyman plot as gpplot2 object.
 #'
@@ -31,18 +32,18 @@
 #'
 #'@export
 #'
-johnson_neyman <- function(object,X,M,modrange=NULL,resolution=10000){
+johnson_neyman <- function(object,X,M,modrange=NULL,resolution=10000,sig.thresh=0.05){
   if("lm" %in% class(object)){
-    return(.johnson_neyman_lm(object,X,M,modrange,resolution))
+    return(.johnson_neyman_lm(object,X,M,modrange,resolution,sig.thresh))
   }
   else if("lmerMod" %in% class(object)){
-    return(.johnson_neyman_lme4(object,X,M,modrange,resolution))
+    return(.johnson_neyman_lme4(object,X,M,modrange,resolution,sig.thresh))
   }
   else if("nlme" %in% class(object)){
-    return(.johnson_neyman_nlme(object,X,M,modrange,resolution))
+    return(.johnson_neyman_nlme(object,X,M,modrange,resolution,sig.thresh))
   }
   else{
     warning("Model is from neither of the allowed classes. Treating it as lm")
-    return(.johnson_neyman_lm(object,X,M,modrange,resolution))
+    return(.johnson_neyman_lm(object,X,M,modrange,resolution,sig.thresh))
   }
 }

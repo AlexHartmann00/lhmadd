@@ -13,7 +13,7 @@
 #'
 #'@noRd
 #'
-.johnson_neyman <- function(B,sigma,x,m,modrange,df,resolution=10000){
+.johnson_neyman <- function(B,sigma,x,m,modrange,df,resolution=10000,sig.thresh=0.05){
   xname <- x
   intname <- paste(x,m,sep=":")
   modname <- m
@@ -46,7 +46,7 @@
   ts <- t(modoptions)
   ses <- se(modoptions)
 
-  critical_t <- qt(0.025,df)
+  critical_t <- qt(sig.thresh/2,df)
 
   significance <- ifelse(abs(ts) > abs(critical_t),"at p<0.05","n.s.")
   w_1_vals <- w_1(modoptions)
@@ -68,16 +68,21 @@
     print(paste("Effect of",x,"significant for",m, "inside",sigrange[1],",",sigrange[2]))
   }
 
+  legenddf <- data.frame(x=c(mean(modrange)-0.001,mean(modrange+0.001)),y=c(-0.001,0.001),sig=c("n.s.",paste("p <",sig.thresh)))
+
   plt <- ggplot2::ggplot() +
     ggplot2::geom_line(aes(modoptions,w_1_vals)) +
     ggplot2::geom_hline(yintercept=0,linetype="dashed")+
+    ggplot2::geom_ribbon(data=legenddf,aes(x,y,ymin=y-0.0001,ymax=y+0.001,fill=sig),alpha=0)+
     ggplot2::geom_ribbon(data = nsdf,aes(M,W,
                     ymin=low,
                     ymax=up),fill="red",alpha=0.3)+
     ggplot2::geom_ribbon(data = sigdf,aes(M,W,
                     ymin=low,
                     ymax=up),fill="lightblue",alpha=0.3)+
-    ggplot2::labs(x=modname,y=paste("slope of",xname))+
+    ggplot2::labs(x=modname,y=paste("slope of",xname),fill="")+
+    ggplot2::lims(x=modrange,y=range(c(data$low,data$up)))+
+    ggplot2::scale_fill_manual(values=c("red","lightblue"))+
     ggplot2::theme_classic()
 
   return(plt)
