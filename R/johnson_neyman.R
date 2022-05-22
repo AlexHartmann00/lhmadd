@@ -15,12 +15,12 @@
 #'
 .johnson_neyman <- function(B,sigma,x,m,modrange,df,resolution=10000,sig.thresh=0.05){
   xname <- x
-  intname <- paste(x,m,sep=":")
+  intnames <- c(paste(x,m,sep=":"),paste(m,x,sep=":"))
   modname <- m
 
   xindex <- (1:length(B))[names(B) == xname]
   modindex <- (1:length(B))[names(B) == modname]
-  intindex <- (1:length(B))[names(B) == intname]
+  intindex <- (1:length(B))[names(B) %in% intnames]
 
   b_1 <- B[xindex]
   b_3 <- B[intindex]
@@ -73,7 +73,7 @@
   plt <- ggplot2::ggplot() +
     ggplot2::geom_line(aes(modoptions,w_1_vals)) +
     ggplot2::geom_hline(yintercept=0,linetype="dashed")+
-    ggplot2::geom_ribbon(data=legenddf,aes(x,y,ymin=y-0.0001,ymax=y+0.001,fill=sig),alpha=0)+
+    ggplot2::geom_ribbon(data=legenddf,aes(x,y,ymin=y-0.0001,ymax=y+0.001,fill=sig),alpha=0.3)+
     ggplot2::geom_ribbon(data = nsdf,aes(M,W,
                     ymin=low,
                     ymax=up),fill="red",alpha=0.3)+
