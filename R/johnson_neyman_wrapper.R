@@ -39,11 +39,12 @@ johnson_neyman <- function(object,X,M,modrange=NULL,resolution=10000,sig.thresh=
   else if("lmerMod" %in% class(object)){
     return(.johnson_neyman_lme4(object,X,M,modrange,resolution,sig.thresh))
   }
-  else if("nlme" %in% class(object)){
+  else if("nlme" %in% class(object) || "lme" %in% class(object)){
+    if(is.null(modrange)) stop("When using nlme/lme, \"modrange\" argument must be supplied.")
     return(.johnson_neyman_nlme(object,X,M,modrange,resolution,sig.thresh))
   }
   else{
-    warning("Model is from neither of the allowed classes. Treating it as lm")
+    warning("Model is from none of the allowed classes. Treating it as lm")
     return(.johnson_neyman_lm(object,X,M,modrange,resolution,sig.thresh))
   }
 }
