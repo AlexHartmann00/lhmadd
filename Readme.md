@@ -1,9 +1,9 @@
-# lhmadd - R package to add functions for linear (mixed) models
+# lmmadd - R package to add functions for linear (mixed) models
 
 ## Install from GitHub
 ```rb
 #install.packages("devtools")
-devtools::install_github("AlexHartmann00/lhmadd")
+devtools::install_github("AlexHartmann00/lmmadd")
 ```
 
 ## Johnson-Neyman plots
@@ -13,7 +13,7 @@ Works for all of the following: "lm","glm","lme4","nlme", might work for more.
 Usage:
 
 ```rb
-library(lhmadd)
+library(lmmadd)
 x <- rnorm(50)
 m <- rnorm(50)
 y <- rnorm(50,x*m,2)
