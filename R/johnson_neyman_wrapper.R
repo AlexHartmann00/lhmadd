@@ -33,13 +33,14 @@
 #'@export
 #'
 johnson_neyman <- function(object,X,M,modrange=NULL,resolution=10000,sig.thresh=0.05){
-  if("lm" %in% class(object)){
+  mt <- .modelType(object)
+  if(mt == "lm"){
     return(.johnson_neyman_lm(object,X,M,modrange,resolution,sig.thresh))
   }
-  else if("lmerMod" %in% class(object)){
+  else if(mt == "lme4"){
     return(.johnson_neyman_lme4(object,X,M,modrange,resolution,sig.thresh))
   }
-  else if("nlme" %in% class(object) || "lme" %in% class(object)){
+  else if(mt == "nlme"){
     if(is.null(modrange)) stop("When using nlme/lme, \"modrange\" argument must be supplied.")
     return(.johnson_neyman_nlme(object,X,M,modrange,resolution,sig.thresh))
   }
