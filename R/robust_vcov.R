@@ -3,12 +3,17 @@
 #'Computes heteroskedasticity robust covariance matrix
 #'
 #'@param object Model object of type "lm", "glm" or "lmer"(lme4)
+#'@param modelmat Model matrix, required only if model is of none of the allowed classes
+#'@param type Any of "HC1", "HC3", indicating method for calculating HC variance-covariance matrix
+#'
 #'
 #'@return Covariance matrix
 #'
-<<<<<<< HEAD
 #' @export
-robust_vcov <- function(object,modelmat,type="HC1"){
+robust_vcov <- function(object,modelmat=NULL,type="HC1"){
+  if(is.null(modelmat)){
+    modelmat <- model.matrix(object)
+  }
   X <- modelmat
   k <- ncol(X)
   n <- nrow(X)
@@ -23,19 +28,5 @@ robust_vcov <- function(object,modelmat,type="HC1"){
   }
   sandwich <- solve(t(X) %*% X)
   meat <- (t(X) %*% (hc*diag(n)) %*% X)
-  vce <- solve(t(X) %*% X) %*%
-    (t(X) %*% (hc*diag(n)) %*% X) %*%
-    solve(t(X) %*% X)
   return(sandwich %*% meat %*% sandwich)
-=======
-#'@export
-robust_vcov <- function(object){
-  mt <- .modelType(object)
-  if(mt == "nlme"){
-    return(.robust_vcov_nlme(object))
-  }
-  else{
-    return(.robust_vcov_lm_lme4(object))
-  }
->>>>>>> 8b4f4a6ba07dd8b30d654bd07e846fd592e547dc
 }

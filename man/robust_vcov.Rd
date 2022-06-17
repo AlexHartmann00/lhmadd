@@ -4,10 +4,14 @@
 \alias{robust_vcov}
 \title{Compute HC variance-covariance matrix}
 \usage{
-robust_vcov(object)
+robust_vcov(object, modelmat = NULL, type = "HC1")
 }
 \arguments{
 \item{object}{Model object of type "lm", "glm" or "lmer"(lme4)}
+
+\item{modelmat}{Model matrix, required only if model is of none of the allowed classes}
+
+\item{type}{Any of "HC1", "HC3", indicating method for calculating HC variance-covariance matrix}
 }
 \value{
 Covariance matrix
