@@ -2,11 +2,11 @@
 #'
 #'Performs heteroskedasticity-robust t-tests for coefficients in a (generalized) linear model.
 #'
-#'@param object Model object of type "lm" or "glm"
+#'@param object Model object of type "nlme"
 #'
 #'
-.robust_sig_test_lm <- function(object,type="HC1"){
-  rvcov <- robust_vcov(object,model.matrix(object),type)
+.robust_sig_test_nlme <- function(object,type="HC1"){
+  rvcov <- robust_vcov(object,model.matrix(object$terms,nlme::getData(object)),type)
   rvar <- diag(rvcov)
   coef <- coefficients(object)
   se <- sqrt(rvar)

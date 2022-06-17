@@ -4,9 +4,9 @@
 #'
 #'@param object Model object of type "lmer"(lme4)
 #'
-#'@export
-robust_sig_test_lme4 <- function(object){
-  rvcov <- robust_vcov(object)
+#'
+.robust_sig_test_lme4 <- function(object,type="HC1"){
+  rvcov <- robust_vcov(object,model.matrix(object),type)
   rvar <- diag(rvcov)
   coef <- lme4::fixef(object)
   se <- sqrt(rvar)

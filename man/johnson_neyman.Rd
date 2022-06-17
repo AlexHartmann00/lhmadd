@@ -4,7 +4,14 @@
 \alias{johnson_neyman}
 \title{Generate Johnson-Neyman plot}
 \usage{
-johnson_neyman(object, X, M, modrange = NULL, resolution = 10000)
+johnson_neyman(
+  object,
+  X,
+  M,
+  modrange = NULL,
+  resolution = 10000,
+  sig.thresh = 0.05
+)
 }
 \arguments{
 \item{object}{model object, either "lm","lmer","nlme"}
@@ -16,12 +23,14 @@ johnson_neyman(object, X, M, modrange = NULL, resolution = 10000)
 \item{modrange}{moderator range to consider. Defaults to observed range.}
 
 \item{resolution}{plotting resolution, i.e. count of moderator values to consider}
+
+\item{sig.thresh}{significance threshold alpha. Defaults to 0.05.}
 }
 \value{
-Johnson-neyman plot as gpplot2 object.
+Johnson-neyman plot as gpplot2 object. Also prints the exact significance regions within the supplied moderator range.
 }
 \description{
-Generates a Johnson-Neyman plot for the effect of X on the dependent variable, moderated by M.
+Generates a Johnson-Neyman plot for the effect of X on the dependent variable, moderated by M. Performs two-sided t-Test on coefficient.
 }
 \examples{
 #Generate base plot for linear model
