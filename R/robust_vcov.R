@@ -6,6 +6,7 @@
 #'
 #'@return Covariance matrix
 #'
+<<<<<<< HEAD
 #' @export
 robust_vcov <- function(object,modelmat,type="HC1"){
   X <- modelmat
@@ -26,4 +27,15 @@ robust_vcov <- function(object,modelmat,type="HC1"){
     (t(X) %*% (hc*diag(n)) %*% X) %*%
     solve(t(X) %*% X)
   return(sandwich %*% meat %*% sandwich)
+=======
+#'@export
+robust_vcov <- function(object){
+  mt <- .modelType(object)
+  if(mt == "nlme"){
+    return(.robust_vcov_nlme(object))
+  }
+  else{
+    return(.robust_vcov_lm_lme4(object))
+  }
+>>>>>>> 8b4f4a6ba07dd8b30d654bd07e846fd592e547dc
 }
