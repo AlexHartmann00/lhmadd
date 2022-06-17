@@ -84,9 +84,13 @@ robust_sig_test(model,type="HC3")
 
 This produces a coefficient table of the form
 
+```rb
                     coef        se           t          p
 (Intercept) -0.034286686 0.2572227 -0.13329571 0.89454096
 m            0.335772820 0.2656431  1.26399956 0.21259800
 x           -0.003829244 0.2692055 -0.01422424 0.98871260
 m:x          0.693468361 0.3693928  1.87731988 0.06682399
+```
+
+Available methods at the moment are "HC1" and "HC3".
 
