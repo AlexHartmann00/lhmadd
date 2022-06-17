@@ -7,15 +7,23 @@
 #'@return Covariance matrix
 #'
 #' @export
-robust_vcov <- function(object){
-  X <- model.matrix(object)
+robust_vcov <- function(object,modelmat,type="HC1"){
+  X <- modelmat
   k <- ncol(X)
   n <- nrow(X)
-  hc1 <- (n/(n-k))*resid(object)^2
+  if(type == "HC1"){
+    hc <- (n/(n-k))*resid(object)^2
+  }
+  else if(type == "HC3"){
+    hc <- resid(m)^2/(1 - hatvalues(m))^2
+  }
+  else{
+    stop("Type must be any of {HC1, HC3}")
+  }
   sandwich <- solve(t(X) %*% X)
-  meat <- (t(X) %*% (hc1*diag(n)) %*% X)
+  meat <- (t(X) %*% (hc*diag(n)) %*% X)
   vce <- solve(t(X) %*% X) %*%
-    (t(X) %*% (hc1*diag(n)) %*% X) %*%
+    (t(X) %*% (hc*diag(n)) %*% X) %*%
     solve(t(X) %*% X)
   return(sandwich %*% meat %*% sandwich)
 }

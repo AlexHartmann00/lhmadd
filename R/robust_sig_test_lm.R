@@ -6,7 +6,7 @@
 #'
 #'@export
 robust_sig_test_lm <- function(object){
-  rvcov <- robust_vcov(object)
+  rvcov <- robust_vcov(object,model.matrix(object))
   rvar <- diag(rvcov)
   coef <- coefficients(object)
   se <- sqrt(rvar)
