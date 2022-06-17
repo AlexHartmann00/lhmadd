@@ -21,7 +21,7 @@ robust_vcov <- function(object,modelmat=NULL,type="HC1"){
     hc <- (n/(n-k))*resid(object)^2
   }
   else if(type == "HC3"){
-    hc <- resid(m)^2/(1 - hatvalues(m))^2
+    hc <- resid(object)^2/(1 - hatvalues(object))^2
   }
   else{
     stop("Type must be any of {HC1, HC3}")
