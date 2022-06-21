@@ -98,9 +98,9 @@ Variance-Covariance matrix calculations:
 
 HC1:
 
-$$\mathbf{\sigma} = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{n(y - \hat{y})^2}{n-k} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
+$$\mathbf{\sigma}_{HC1} = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{n(y - \hat{y})^2}{n-k} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
 
 HC3:
 
-$$\mathbf{\sigma} = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{(y - \hat{y})^2}{(1 - \mathbf{H})^2} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
+$$\mathbf{\sigma}_{HC3} = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{(y - \hat{y})^2}{(1 - \mathbf{H})^2} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
 
