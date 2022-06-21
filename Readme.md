@@ -94,11 +94,13 @@ m:x          0.693468361 0.3693928  1.87731988 0.06682399
 
 Available methods at the moment are "HC1" and "HC3".
 
+Variance-Covariance matrix calculations:
+
 HC1:
 
-$$\sigma = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{n(y - \hat{y})^2}{n-k} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
+$$\mathbf{\sigma} = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{n(y - \hat{y})^2}{n-k} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
 
 HC3:
 
-$$\sigma = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{(y - \hat{y})^2}{(1 - \mathbf{H})^2} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
+$$\mathbf{\sigma} = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{(y - \hat{y})^2}{(1 - \mathbf{H})^2} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
 
