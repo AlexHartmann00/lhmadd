@@ -39,7 +39,7 @@ $$w_1(M) = b_1 + b_3M$$
 
 From elementary variance calculations,
 
-$$Var(w_1(M)) = Var(b_1) + Var(b_3M) + Cov(B_1,B_3M)$$
+$$Var(w_1(M)) = Var(b_1) + Var(b_3M) + 2Cov(B_1,B_3M)$$
 
 Note that
 
@@ -51,11 +51,11 @@ $$Cov(b_1,b_3M) = MCov(b_1,b_3)$$
 
 So, we get
 
-$$Var(w_1(M)) = Var(b_1) + M^2Var(b_3) + MCov(b_1,b_3)$$
+$$Var(w_1(M)) = Var(b_1) + M^2Var(b_3) + 2MCov(b_1,b_3)$$
 
 and
 
-$$se(w_1(M)) = \sqrt{(Var(b_1) + M^2Var(b_3) + MCov(b_1,b_3))}$$
+$$se(w_1(M)) = \sqrt{(Var(b_1) + M^2Var(b_3) + 2MCov(b_1,b_3))}$$
 
 The t-statistic is then calculated as
 
