@@ -104,5 +104,5 @@ HC3:
 
 $$\mathbf{\sigma}_{HC3} = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{(y - \hat{y})^2}{(1 - \mathbf{H})^2} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
 
-where $$\mathbf{H}$$ is leverage, $$\mathbf{X}$$ the model matrix, $n$ the number of observations and $k$ the number of coefficients.
+where $\mathbf{H}$ is leverage, $\mathbf{X}$ the model matrix, $n$ the number of observations and $k$ the number of coefficients.
 
