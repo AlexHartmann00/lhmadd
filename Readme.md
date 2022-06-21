@@ -96,7 +96,9 @@ Available methods at the moment are "HC1" and "HC3".
 
 HC1:
 
+$$\sigma = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{n(y - \hat{y})^2}{n-k} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
+
 HC3:
 
-$$(\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{(y - \hat{y})^2}{(1 - \mathbf{H})^2} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
+$$\sigma = (\mathbf{X}^T \mathbf{X})^{-1} \times \mathbf{X}^T \Big(\frac{(y - \hat{y})^2}{(1 - \mathbf{H})^2} \mathbf{I}_n\Big) \mathbf{X} \times(\mathbf{X}^T\mathbf{X})^{-1}$$
 
