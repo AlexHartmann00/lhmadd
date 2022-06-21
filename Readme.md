@@ -25,7 +25,7 @@ johnson_neyman(model,"x","m")
 
 ### Mathematical derivation of significance test
 
-Simple regression equation with interaction term!
+Simple regression equation with interaction term:
 
 $$y = b_0 + b_1X + b_2M + b_3XM$$
 
