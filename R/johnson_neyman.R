@@ -34,7 +34,7 @@
   cov_b1b3 <- sigma[intindex,xindex]
 
   se <- function(M){
-    sqrt(var_b1 + var_b3*M^2 + M*cov_b1b3)
+    sqrt(var_b1 + var_b3*M^2 + 2*M*cov_b1b3)
   }
 
   t <- function(M){

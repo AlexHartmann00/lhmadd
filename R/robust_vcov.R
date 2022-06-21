@@ -2,7 +2,7 @@
 #'
 #'Computes heteroskedasticity robust covariance matrix
 #'
-#'@param object Model object of type "lm", "glm" or "lmer"(lme4)
+#'@param object Model object of type "lm", "glm", "lmer", "glmer", "nlme", "lme"
 #'@param modelmat Model matrix, required only if model is of none of the allowed classes
 #'@param type Any of "HC1", "HC3", indicating method for calculating HC variance-covariance matrix
 #'
