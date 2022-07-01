@@ -15,10 +15,10 @@ robust_sig_test <- function(object,type="HC1"){
     return(.robust_sig_test_lme4(object,type))
   }
   else if(mt == "nlme"){
-    stop(.robust_sig_test_nlme(object,type))
+    return(.robust_sig_test_nlme(object,type))
   }
   else{
     warning("Model is from none of the allowed classes. Treating it as lm")
-    return(.johnson_neyman_lm(object,X,M,modrange,resolution,sig.thresh))
+    return(.robust_sig_test_lm(object,X,M,modrange,resolution,sig.thresh))
   }
 }

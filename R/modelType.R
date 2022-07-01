@@ -9,7 +9,7 @@
   if("lm" %in% class(object)){
     return("lm")
   }
-  else if("lmerMod" %in% class(object) || "glmerMod" %in% class(object)){
+  else if("lmerMod" %in% class(object) || "glmerMod" %in% class(object) || attr(class(mod),"package") == "lmerTest"){
     return("lme4")
   }
   else if("nlme" %in% class(object) || "lme" %in% class(object)){
