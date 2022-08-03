@@ -16,14 +16,16 @@ x1 <- rnorm(100)
 x2 <- rnorm(100)
 y <- rnorm(100,0.4*x1-0.6*x2,2)
 df <- data.frame(y,x1,x2)
-model <- lm(y~x1*x2,data=df)
-brr <- bootreg(data=df,model=model,method=lm,n=1000)
+model_lm <- lm(y~x1*x2,data=df)
+#model_lme4 <- lme4::lmer(y~x1*x2 + (1|g))
+brr_lm <- bootreg(data=df,model=model_lm,method=lm,n=1000)
+#brr_lme4 <- bootreg(data=df,model=model_lme4,method=lme4::lmer,n=1000)
 ```
 The code above runs 1000 bootstrap replications of the specified model. The outpu object is of class "brr" and can be summarized and plotted:
 
 Summary:
 ```rb
-summary(brr)
+summary(brr_lm)
 
             Estimate     SE       z      p    LLCI   ULCI
 (Intercept)   0.2163 0.1982  1.0912 0.2752 -0.1722 0.6047
@@ -36,7 +38,7 @@ Iterations: 1000 (planned) / 1000 (successful)
 Plots:
 
 ```br
-plot(brr)
+plot(brr_lm)
 ```
 
 ![bootregexample](https://user-images.githubusercontent.com/87905364/182581323-e3952792-1d37-4929-9469-05b272fd065e.png)
