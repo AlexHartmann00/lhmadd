@@ -11,6 +11,7 @@ devtools::install_github("AlexHartmann00/lmmadd")
 Usage:
 
 ```rb
+library(lmmadd)
 x1 <- rnorm(100)
 x2 <- rnorm(100)
 y <- rnorm(100,0.4*x1-0.6*x2,2)
