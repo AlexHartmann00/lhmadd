@@ -10,6 +10,14 @@
 #'@return Bootstrap regression results object (brr)
 #'
 #'@examples
+#'R base models
+#'x <- rnorm(100)
+#'m <- rnorm(100)
+#'y <- rnorm(100,0.4*x-0.6*m,2)
+#'model <- lm(y~m*x)
+#'brr <- bootreg(data.frame(x,m,y),model,lm)
+#'
+#'
 #'#mixed models
 #'x <- rnorm(50)
 #'m <- rnorm(50)
@@ -22,7 +30,6 @@
 #'
 bootreg <- function(data,model,method=lm,n=1000){
   modelcoefs <- .extractCoefficients(model)
-  print(modelcoefs)
   ret <- list()
   attr(ret,"class") <- "brr"
   coeflist <- list()
@@ -36,10 +43,8 @@ bootreg <- function(data,model,method=lm,n=1000){
       print(paste("Estimated time remaining:",ceiling(st*(n-i)),"seconds."))
     }
   }
-  print(coeflist)
   ret$coefficients <- do.call(rbind.data.frame,coeflist)
   colnames(ret$coefficients) <- names(modelcoefs)
-  print("named")
   ret$parcount <- length(modelcoefs)
   ret$replications <- n
   ret$sreplications <- nrow(ret$coefficients)
