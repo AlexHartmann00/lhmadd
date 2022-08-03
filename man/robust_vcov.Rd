@@ -7,7 +7,7 @@
 robust_vcov(object, modelmat = NULL, type = "HC1")
 }
 \arguments{
-\item{object}{Model object of type "lm", "glm" or "lmer"(lme4)}
+\item{object}{Model object of type "lm", "glm", "lmer", "glmer", "nlme", "lme"}
 
 \item{modelmat}{Model matrix, required only if model is of none of the allowed classes}
 

@@ -7,7 +7,9 @@
 robust_sig_test(object, type = "HC1")
 }
 \arguments{
-\item{object}{Model object of type "lm", "glm", "lmer", "glmer"}
+\item{object}{Model object of type "lm", "glm", "lmer", "glmer", "nlme"}
+
+\item{type}{Specifies which model to use for calculating HC standard errors. Can be any of {"HC1","HC3"}}
 }
 \description{
 Performs heteroskedasticity-robust t-tests for coefficients in a (generalized) linear (mixed) model.

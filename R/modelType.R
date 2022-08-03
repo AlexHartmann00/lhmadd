@@ -6,7 +6,7 @@
 #'
 #'
 .modelType <- function(object){
-  if("lm" %in% class(object)){
+  if("lm" %in% class(object) || "glm" %in% class(object)){
     return("lm")
   }
   else if("lmerMod" %in% class(object) || "glmerMod" %in% class(object) || attr(class(mod),"package") == "lmerTest"){
