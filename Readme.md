@@ -46,7 +46,7 @@ plot(brr_lm)
 
 ## Johnson-Neyman plots
 
-Works for all of the following: "lm","glm","lme4","nlme", might work for more.
+Works for all of the following: "lm","glm","lme4","nlme", might work for more. ("brr" is WIP)
 
 Usage:
 
