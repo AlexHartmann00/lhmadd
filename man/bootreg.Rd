@@ -2,14 +2,14 @@
 % Please edit documentation in R/bootreg.R
 \name{bootreg}
 \alias{bootreg}
-\title{Generate Johnson-Neyman plot}
+\title{Run Bootstrapped regression}
 \usage{
-bootreg(data, model, method, n = 1000)
+bootreg(data, model, method = lm, n = 1000)
 }
 \arguments{
 \item{data}{a data frame}
 
-\item{model}{a fitted lme4-model}
+\item{model}{a fitted lme or lm - model}
 
 \item{method}{a function to use for refitting}
 
@@ -19,9 +19,17 @@ bootreg(data, model, method, n = 1000)
 Bootstrap regression results object (brr)
 }
 \description{
-Generates a Johnson-Neyman plot for the effect of X on the dependent variable, moderated by M. Performs two-sided t-Test on coefficient.
+runs repeated regressions on bootstrap samples, testing coefficients via z-distribution using bootstrapped standard errors.
 }
 \examples{
+R base models
+x <- rnorm(100)
+m <- rnorm(100)
+y <- rnorm(100,0.4*x-0.6*m,2)
+model <- lm(y~m*x)
+brr <- bootreg(data.frame(x,m,y),model,lm)
+
+
 #mixed models
 x <- rnorm(50)
 m <- rnorm(50)

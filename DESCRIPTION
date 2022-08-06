@@ -4,7 +4,7 @@ Title: Functions for Linear Mixed Models
 Version: 0.1.0
 Author: Alex Hartmann
 Maintainer: <alex@alexhartmann.eu>
-Description: Collection of package-agnostic linear (mixed) modeling functions
+Description: Collection of package-agnostic linear (mixed) modeling functions.
 License: GPL
 Encoding: UTF-8
 LazyData: true

@@ -49,6 +49,7 @@ bootreg <- function(data,model,method=lm,n=1000){
   ret$replications <- n
   ret$sreplications <- nrow(ret$coefficients)
   ret$formula <- formula(model)
+  ret$model <- model
   return(ret)
 }
 
@@ -67,7 +68,6 @@ bootrep <- function(data,model,method){
   return(res)
 }
 
-
 #'@export
 summary.brr <- function(object){
   stopifnot(inherits(object,"brr"))
@@ -78,8 +78,9 @@ summary.brr <- function(object){
   los <- estimates - 1.96*sds
   his <- estimates + 1.96*sds
   coeftable <- round(data.frame(Estimate=estimates,SE=sds,z=zs,p=ps,LLCI=los,ULCI=his),4)
-  print(coeftable)
+  #print(coeftable)
   cat(paste("Iterations:",object$replications,"(planned) /",object$sreplications,"(successful)"))
+  return(coeftable)
 }
 
 #'@export
@@ -97,6 +98,26 @@ plot.brr <- function(object){
     hist(object$coefficients[,i],xlab="",ylab="",main=colnames(object$coefficients)[i],breaks=20)
     abline(v=0,lty=2,col="red")
   }
+}
+
+#'@export
+predict.brr <- function(object){
+  return(model.matrix(object) %*% coef(object))
+}
+
+#'@export
+coef.brr <- function(object){
+  return(colMeans(object$coefficients))
+}
+
+#'@export
+vcov.brr <- function(object){
+  return(cov(object$coefficients))
+}
+
+#'@export
+model.matrix.brr <- function(object){
+  return(model.matrix(object$model))
 }
 
 .extractCoefficients <- function(object){

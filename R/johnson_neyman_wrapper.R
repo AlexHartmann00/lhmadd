@@ -34,7 +34,7 @@
 #'
 johnson_neyman <- function(object,X,M,modrange=NULL,resolution=10000,sig.thresh=0.05){
   mt <- .modelType(object)
-  if(mt == "lm"){
+  if(mt == "lm" || mt == "brr"){
     return(.johnson_neyman_lm(object,X,M,modrange,resolution,sig.thresh))
   }
   else if(mt == "lme4"){
